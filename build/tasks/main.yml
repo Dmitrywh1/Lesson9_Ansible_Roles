@@ -1,9 +1,7 @@
 ---
 # tasks file for build
 - name: Copy Dockerfile into build node
-  copy:
-    src: Dockerfile
-    dest: {{ dest_folder }}
+  copy: src=Dockerfile dest={{ dest_folder }}
 
 - name: Build image
   docker_image:
