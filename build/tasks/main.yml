@@ -1,2 +1,27 @@
 ---
 # tasks file for build
+- name: Copy Dockerfile into build node
+  copy:
+    src: Dockerfile
+    dest: {{ dest_folder }}
+
+- name: Build image
+  docker_image:
+    path: /home/dmitry
+    name: buildappl9
+    tag: latest
+
+- name: Login to Docker Hub
+  docker_login:
+    email: morgotq@gmail.com
+    username: morgotq
+    password: Zoipolidz1.
+
+- name: Tag image with Docker Hub repository name
+  docker_image:
+    name: buildappl9
+    tag: latest
+    repository: morgotq/buildappl9
+    push: yes
+  notify:
+    - restart docker

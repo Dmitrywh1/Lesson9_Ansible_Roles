@@ -1,2 +1,12 @@
 ---
-# tasks file for prod
+- name: Pull Docker image from Docker Hub
+  docker_image:
+    name: morgotq/buildappl9
+    tag: latest
+- name: Run Docker container
+  docker_container:
+    name: prod
+    image: morgotq/buildappl9
+    state: started
+    ports:
+      - "8085:8080"
