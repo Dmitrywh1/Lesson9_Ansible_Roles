@@ -1,4 +1,4 @@
 ---
 # handlers file for prod
 - name: restart docker
-  service: name=docker state=restart
+  service: name=docker state=restarted
