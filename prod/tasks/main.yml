@@ -10,5 +10,5 @@
     state: started
     ports:
       - "8090:8080"
-    notify:
-      - restart docker
+  notify:
+    - restart docker
