@@ -9,4 +9,6 @@
     image: morgotq/buildappl9
     state: started
     ports:
-      - "8085:8080"
+      - "8090:8080"
+    notify:
+      - restart docker
